@@ -1,0 +1,48 @@
+[2021-12-11 15:26:52,088] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_postgres_create_table.create_dummy_table 2021-12-11T15:09:19.796352+00:00 [queued]>
+[2021-12-11 15:26:52,112] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_postgres_create_table.create_dummy_table 2021-12-11T15:09:19.796352+00:00 [queued]>
+[2021-12-11 15:26:52,113] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-12-11 15:26:52,114] {taskinstance.py:1088} INFO - Starting attempt 2 of 2
+[2021-12-11 15:26:52,115] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-12-11 15:26:52,124] {taskinstance.py:1107} INFO - Executing <Task(PostgresOperator): create_dummy_table> on 2021-12-11T15:09:19.796352+00:00
+[2021-12-11 15:26:52,138] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_postgres_create_table', 'create_dummy_table', '2021-12-11T15:09:19.796352+00:00', '--job-id', '5', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag_postgres_create_table.py', '--cfg-path', '/tmp/tmp32vw0zbr', '--error-file', '/tmp/tmpu6ukmyks']
+[2021-12-11 15:26:52,140] {standard_task_runner.py:77} INFO - Job 5: Subtask create_dummy_table
+[2021-12-11 15:26:52,132] {standard_task_runner.py:52} INFO - Started process 1470 to run task
+[2021-12-11 15:26:52,215] {logging_mixin.py:104} INFO - Running <TaskInstance: dag_postgres_create_table.create_dummy_table 2021-12-11T15:09:19.796352+00:00 [running]> on host 3867aa8d4359
+[2021-12-11 15:26:52,343] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_postgres_create_table
+AIRFLOW_CTX_TASK_ID=create_dummy_table
+AIRFLOW_CTX_EXECUTION_DATE=2021-12-11T15:09:19.796352+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-12-11T15:09:19.796352+00:00
+[2021-12-11 15:26:52,347] {postgres.py:68} INFO - Executing: CREATE TABLE scaled_data
+    (
+        idx_col integer,
+        petal_width float,
+        petal_length float
+    );
+    
+[2021-12-11 15:26:52,361] {base.py:78} INFO - Using connection to: id: postgres_source. Host: postgres_source, Port: 5439, Schema: None, Login: admin_user, Password: ***, extra: {}
+[2021-12-11 15:26:52,365] {taskinstance.py:1501} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1157, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1331, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1361, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/postgres/operators/postgres.py", line 70, in execute
+    self.hook.run(self.sql, self.autocommit, parameters=self.parameters)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/hooks/dbapi.py", line 177, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/postgres/hooks/postgres.py", line 115, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.6/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: Connection refused
+	Is the server running on host "postgres_source" (192.168.96.4) and accepting
+	TCP/IP connections on port 5439?
+
+[2021-12-11 15:26:52,370] {taskinstance.py:1551} INFO - Marking task as FAILED. dag_id=dag_postgres_create_table, task_id=create_dummy_table, execution_date=20211211T150919, start_date=20211211T152652, end_date=20211211T152652
+[2021-12-11 15:26:52,405] {local_task_job.py:149} INFO - Task exited with return code 1

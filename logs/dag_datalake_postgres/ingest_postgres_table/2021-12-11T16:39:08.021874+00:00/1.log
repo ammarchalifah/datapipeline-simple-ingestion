@@ -1,0 +1,35 @@
+[2021-12-11 16:39:10,358] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_datalake_postgres.ingest_postgres_table 2021-12-11T16:39:08.021874+00:00 [queued]>
+[2021-12-11 16:39:10,390] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_datalake_postgres.ingest_postgres_table 2021-12-11T16:39:08.021874+00:00 [queued]>
+[2021-12-11 16:39:10,391] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-12-11 16:39:10,393] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-12-11 16:39:10,394] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-12-11 16:39:10,407] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): ingest_postgres_table> on 2021-12-11T16:39:08.021874+00:00
+[2021-12-11 16:39:10,414] {standard_task_runner.py:52} INFO - Started process 2653 to run task
+[2021-12-11 16:39:10,421] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_datalake_postgres', 'ingest_postgres_table', '2021-12-11T16:39:08.021874+00:00', '--job-id', '5', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag_datalake_postgres.py', '--cfg-path', '/tmp/tmpvatqookv', '--error-file', '/tmp/tmp161_v2s8']
+[2021-12-11 16:39:10,423] {standard_task_runner.py:77} INFO - Job 5: Subtask ingest_postgres_table
+[2021-12-11 16:39:10,502] {logging_mixin.py:104} INFO - Running <TaskInstance: dag_datalake_postgres.ingest_postgres_table 2021-12-11T16:39:08.021874+00:00 [running]> on host a4b6b2594d54
+[2021-12-11 16:39:10,562] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_datalake_postgres
+AIRFLOW_CTX_TASK_ID=ingest_postgres_table
+AIRFLOW_CTX_EXECUTION_DATE=2021-12-11T16:39:08.021874+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-12-11T16:39:08.021874+00:00
+[2021-12-11 16:39:10,565] {taskinstance.py:1501} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1157, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1331, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1361, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 150, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 161, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/postgres_ingestion.py", line 8, in ingest_postgres
+    host_source = kwargs['params']['host']
+KeyError: 'host'
+[2021-12-11 16:39:10,572] {taskinstance.py:1551} INFO - Marking task as FAILED. dag_id=dag_datalake_postgres, task_id=ingest_postgres_table, execution_date=20211211T163908, start_date=20211211T163910, end_date=20211211T163910
+[2021-12-11 16:39:10,640] {local_task_job.py:149} INFO - Task exited with return code 1

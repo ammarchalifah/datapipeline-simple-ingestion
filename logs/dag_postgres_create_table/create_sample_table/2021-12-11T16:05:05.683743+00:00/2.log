@@ -1,0 +1,63 @@
+[2021-12-11 16:05:45,153] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_postgres_create_table.create_sample_table 2021-12-11T16:05:05.683743+00:00 [queued]>
+[2021-12-11 16:05:45,171] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_postgres_create_table.create_sample_table 2021-12-11T16:05:05.683743+00:00 [queued]>
+[2021-12-11 16:05:45,172] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-12-11 16:05:45,173] {taskinstance.py:1088} INFO - Starting attempt 2 of 2
+[2021-12-11 16:05:45,173] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-12-11 16:05:45,182] {taskinstance.py:1107} INFO - Executing <Task(PostgresOperator): create_sample_table> on 2021-12-11T16:05:05.683743+00:00
+[2021-12-11 16:05:45,187] {standard_task_runner.py:52} INFO - Started process 178 to run task
+[2021-12-11 16:05:45,191] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_postgres_create_table', 'create_sample_table', '2021-12-11T16:05:05.683743+00:00', '--job-id', '3', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag_postgres_create_table.py', '--cfg-path', '/tmp/tmp45a1nswe', '--error-file', '/tmp/tmp3awfonsy']
+[2021-12-11 16:05:45,193] {standard_task_runner.py:77} INFO - Job 3: Subtask create_sample_table
+[2021-12-11 16:05:45,238] {logging_mixin.py:104} INFO - Running <TaskInstance: dag_postgres_create_table.create_sample_table 2021-12-11T16:05:05.683743+00:00 [running]> on host a4b6b2594d54
+[2021-12-11 16:05:45,303] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_postgres_create_table
+AIRFLOW_CTX_TASK_ID=create_sample_table
+AIRFLOW_CTX_EXECUTION_DATE=2021-12-11T16:05:05.683743+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-12-11T16:05:05.683743+00:00
+[2021-12-11 16:05:45,304] {postgres.py:68} INFO - Executing: 
+    CREATE TABLE sample_table
+    (
+        id integer,
+        creation_date date,
+        updated_date date,
+        company_id integer,
+        cash_in bigint,
+        cash_out bigint
+    );
+
+    INSERT INTO sample_table VALUES (1, '2021-10-01', '2021-10-01', 234, 450, 455);
+    INSERT INTO sample_table VALUES (2, '2021-11-01', '2021-11-01', 340, 40, 55);
+    INSERT INTO sample_table VALUES (3, '2021-11-01', '2021-11-01', 340, 50, 55);
+    INSERT INTO sample_table VALUES (4, '2021-11-01', '2021-11-03', 365, 1340, 3455);
+    INSERT INTO sample_table VALUES (5, '2021-11-02', '2021-11-04', 365, 1200, 2455);
+    INSERT INTO sample_table VALUES (6, '2021-11-04', '2021-11-04', 450, 0, 4);
+    INSERT INTO sample_table VALUES (7, '2021-11-12', '2021-11-12', 450, 0, 55);
+    INSERT INTO sample_table VALUES (8, '2021-11-15', '2021-11-20', 450, 0, 45);
+    
+[2021-12-11 16:05:45,314] {base.py:78} INFO - Using connection to: id: postgres_source. Host: postgres_source, Port: 5432, Schema: postgres, Login: admin, Password: ***, extra: {}
+[2021-12-11 16:05:45,318] {dbapi.py:204} INFO - Running statement: 
+    CREATE TABLE sample_table
+    (
+        id integer,
+        creation_date date,
+        updated_date date,
+        company_id integer,
+        cash_in bigint,
+        cash_out bigint
+    );
+
+    INSERT INTO sample_table VALUES (1, '2021-10-01', '2021-10-01', 234, 450, 455);
+    INSERT INTO sample_table VALUES (2, '2021-11-01', '2021-11-01', 340, 40, 55);
+    INSERT INTO sample_table VALUES (3, '2021-11-01', '2021-11-01', 340, 50, 55);
+    INSERT INTO sample_table VALUES (4, '2021-11-01', '2021-11-03', 365, 1340, 3455);
+    INSERT INTO sample_table VALUES (5, '2021-11-02', '2021-11-04', 365, 1200, 2455);
+    INSERT INTO sample_table VALUES (6, '2021-11-04', '2021-11-04', 450, 0, 4);
+    INSERT INTO sample_table VALUES (7, '2021-11-12', '2021-11-12', 450, 0, 55);
+    INSERT INTO sample_table VALUES (8, '2021-11-15', '2021-11-20', 450, 0, 45);
+    , parameters: None
+[2021-12-11 16:05:45,333] {dbapi.py:212} INFO - Rows affected: 1
+[2021-12-11 16:05:45,351] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=dag_postgres_create_table, task_id=create_sample_table, execution_date=20211211T160505, start_date=20211211T160545, end_date=20211211T160545
+[2021-12-11 16:05:45,382] {taskinstance.py:1265} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-12-11 16:05:45,408] {local_task_job.py:149} INFO - Task exited with return code 0

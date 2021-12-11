@@ -1,0 +1,25 @@
+[2021-12-11 16:05:46,324] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_postgres_create_table.query_sample_table 2021-12-11T16:05:05.683743+00:00 [queued]>
+[2021-12-11 16:05:46,340] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_postgres_create_table.query_sample_table 2021-12-11T16:05:05.683743+00:00 [queued]>
+[2021-12-11 16:05:46,341] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-12-11 16:05:46,342] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-12-11 16:05:46,343] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-12-11 16:05:46,351] {taskinstance.py:1107} INFO - Executing <Task(PostgresOperator): query_sample_table> on 2021-12-11T16:05:05.683743+00:00
+[2021-12-11 16:05:46,359] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_postgres_create_table', 'query_sample_table', '2021-12-11T16:05:05.683743+00:00', '--job-id', '4', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag_postgres_create_table.py', '--cfg-path', '/tmp/tmpxc6s6s3l', '--error-file', '/tmp/tmp55j8be48']
+[2021-12-11 16:05:46,355] {standard_task_runner.py:52} INFO - Started process 180 to run task
+[2021-12-11 16:05:46,360] {standard_task_runner.py:77} INFO - Job 4: Subtask query_sample_table
+[2021-12-11 16:05:46,403] {logging_mixin.py:104} INFO - Running <TaskInstance: dag_postgres_create_table.query_sample_table 2021-12-11T16:05:05.683743+00:00 [running]> on host a4b6b2594d54
+[2021-12-11 16:05:46,455] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_postgres_create_table
+AIRFLOW_CTX_TASK_ID=query_sample_table
+AIRFLOW_CTX_EXECUTION_DATE=2021-12-11T16:05:05.683743+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-12-11T16:05:05.683743+00:00
+[2021-12-11 16:05:46,456] {postgres.py:68} INFO - Executing: SELECT * from sample_table;
+[2021-12-11 16:05:46,467] {base.py:78} INFO - Using connection to: id: postgres_source. Host: postgres_source, Port: 5432, Schema: postgres, Login: admin, Password: ***, extra: {}
+[2021-12-11 16:05:46,471] {dbapi.py:204} INFO - Running statement: SELECT * from sample_table;, parameters: None
+[2021-12-11 16:05:46,473] {dbapi.py:212} INFO - Rows affected: 8
+[2021-12-11 16:05:46,485] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=dag_postgres_create_table, task_id=query_sample_table, execution_date=20211211T160505, start_date=20211211T160546, end_date=20211211T160546
+[2021-12-11 16:05:46,508] {taskinstance.py:1265} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-12-11 16:05:46,535] {local_task_job.py:149} INFO - Task exited with return code 0
