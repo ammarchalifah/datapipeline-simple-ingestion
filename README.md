@@ -20,7 +20,7 @@ docker-compose up -d
 ```
 4. Open the Airflow web UI by accessing `https://localhost:5884`
 5. Open the first DAG (`dag_postgres_create_table`), unpause the DAG and trigger it to create sample table.
-6. Open the second DAG (`dag_datalake_postgres`), unpause and trigget it to execute data ingestion task.
+6. Open the second DAG (`dag_datalake_postgres`), unpause and trigger it to execute data ingestion task.
 7. To inspect the migrated table, access the target DB by the following command
 ```
 psql -h localhost -p 5440 -U {postgres username} -d {postgres db} --password
